@@ -40,7 +40,7 @@ const ProductDetail = () => {
         setLoading(false)
         const dataresponse = await response.json()
         setData(dataresponse?.data)
-        setactiveimage(dataresponse?.data.productImage[0])
+        setactiveimage(dataresponse?.data?.productImage[0])
 
     }
     console.log("data is -> ", data)
@@ -82,7 +82,7 @@ const ProductDetail = () => {
           ):(
             <div  className='flex gap-2 lg:flex-col overflow-scroll scrollbar-none'>
               {
-                data.productImage.map((imgurl ,index)=>{
+                data?.productImage?.map((imgurl ,index)=>{
                   return(
                     <div className='h-20 w-20 bg-slate-200  p-1' key={imgurl}>
                       <img src={imgurl} className='h-full w-full object-scale-down mix-blend-multiply' onMouseEnter={()=>handlemouse(imgurl)}/>
@@ -99,7 +99,7 @@ const ProductDetail = () => {
      
       {/* Product details */}
       <div className='justify-center items-center'>
-        <p className='capitalize bg-purple-400 px-2  rounded-full inline-block w-fit'>{data.brandName}</p>
+        <p className='capitalize bg-purple-400 px-2  rounded-full inline-block w-fit'>{data?.brandName}</p>
         <h2 className='text-2xl lg:text-2xl font-medium'>{data?.productName}</h2>
         <p className='capitalize text-slate-400'>{data?.category}</p>
         <div className='flex gap-2 text-purple-500'>
@@ -125,8 +125,8 @@ const ProductDetail = () => {
       
       </div>
       {
-        data.category && (
-          <CategorywiseProduct category={data.category} heading={"Recomended Product"}/>
+        data?.category && (
+          <CategorywiseProduct category={data?.category} heading={"Recomended Product"}/>
         )
       }
     
