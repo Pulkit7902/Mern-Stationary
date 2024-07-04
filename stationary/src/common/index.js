@@ -5,7 +5,7 @@ const SummaryApi = {
         method:"post"
     },
     signIn:{
-        url:`${backendDomain}/api/singnin`,
+        url:`${backendDomain}/api/signin`,
         method:"post"
     },
     current_user:{
